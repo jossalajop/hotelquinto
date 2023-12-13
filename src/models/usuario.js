@@ -1,28 +1,31 @@
-const usuario = (sequelize, type) => {
-    return sequelize.define('usuarios', {
-        id_usuario: {
-            type: type.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
+const usuario=(sequelize,type)=>{
+    return sequelize.define('usuarios',{
+        id_usuario:{
+            type:  type.INTEGER,
+            primaryKey:true,
+            autoIncrement:true
         },
-        nombre_terminal: type.STRING,
-        calle_principal_terminal: type.STRING,
-        calle_secundaria_terminal: type.STRING,
-        username_terminal: type.STRING(99),
-        password_terminal: type.STRING,
+        nombreUsuario:type.STRING,
+        apellidoUsuario:type.STRING,
+        correoUsuario:type.STRING,
+        apodoUsuario:type.STRING(99),
+        contraseña: type.STRING,
+        
 
-        crearTerminal: {
+
+        creacionUsuario: {
             type: 'TIMESTAMP',
             defaultValue: type.literal('CURRENT_TIMESTAMP'),
             allowNull: false
         },
-        actualizarTerminal: {
+        actualizarUsuario: {
             type: 'TIMESTAMP',
             defaultValue: type.literal('CURRENT_TIMESTAMP'),
             allowNull: false
         }
     }, {
         timestamps: false,
-    });
+    })
 }
-module.exports = usuario
+
+module.exports = usuario;

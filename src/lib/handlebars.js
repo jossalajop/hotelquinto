@@ -1,3 +1,5 @@
+
+module.exports = helpers;
 const timeago = require('timeago.js');
 const timeagoInstance = timeago;
 

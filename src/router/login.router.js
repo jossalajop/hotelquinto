@@ -1,16 +1,17 @@
-const express = require('express');
-const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');
-
-const { showLogin,
-    login,} = require('../controller/login.controller');
-
-const authController = require('../controller/auth.controller');
+const express = require("express");
+const {
+  showLogin,
+  login,
+  showRegister,
+  registro,
+  cerrarSesion,
+} = require("../controller/login.controller");
 const router = express.Router();
 
-router.get("/", isNotLoggedIn, authController.getSignin);
-router.post("/signin", isNotLoggedIn, authController.postSignin);
-router.post("/signup", isNotLoggedIn, authController.postSignup);
-router.get("/logout",isLoggedIn, authController.getOut);
+router.get("/login", showLogin);
+router.post("/login", login);
+router.get("/registro", showRegister);
+router.post("/registro", registro);
+router.get("/cierreSesion", cerrarSesion);
 
-
-module.exports = router
+module.exports = router;
